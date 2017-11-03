@@ -1,0 +1,20 @@
+{
+  "manifest_version": 2,
+  "name": "UVICalendar",
+  "version": "1.0",
+
+  "description": "Export your detailed schedule as an iCal file for easy importing into Google Calendar or other major calendar applications.",
+
+  "icons": {
+    "48": "icons/uc-48.png",
+    "96": "icons/uc-96.png"
+  },
+
+  "content_scripts": [
+    {
+      "matches": ["https://www.uvic.ca/BAN1P/bwskfshd.P_CrseSchdDetl"],
+      "all_frames": true,
+      "js": ["bundle.js"]
+    }
+  ]
+}
