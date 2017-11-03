@@ -1,8 +1,15 @@
+const webpack = require('webpack')
+const uglify = require('uglifyjs-webpack-plugin')
+const path = require('path')
+
 module.exports = {
-  entry: "./main.js",
-  node: {fs: "empty"},
+  entry: path.join(__dirname, 'src', 'main.js'),
+  node: {fs: 'empty'},
   output: {
-    path: __dirname,
-    filename: "bundle.js"
-  }
+    path: path.join(__dirname, 'dist'),
+    filename: 'bundle.js'
+  },
+  plugins: [
+    new uglify({ uglifyOptions: { warnings: false } })
+  ]
 };
