@@ -10,6 +10,15 @@
     "96": "icons/uc-96.png"
   },
 
+  "browser_action": {
+    "default_icon": {
+      "16": "icons/uc-16.png",
+      "32": "icons/uc-32.png"
+    },
+    "default_title": "UVICalendar",
+    "default_popup": "pop.html"
+  },
+
   "content_scripts": [
     {
       "matches": ["https://www.uvic.ca/BAN1P/bwskfshd.P_CrseSchdDetl"],
