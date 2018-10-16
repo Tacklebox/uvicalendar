@@ -7,9 +7,9 @@ if (page_title.textContent == 'View detailed timetable') {
   let class_objects = []
   class_section_list.forEach(class_selection => {
     let info_table = class_selection.querySelector('table.datadisplaytable.tablesorter > tbody > tbody')
-    Array.from(info_table.rows).forEach(row => { //row = [Type, Time, Days, Where, Date Range, Schedule Type, Instructors]
+    class_objects = class_objects.concat([...info_table.rows].map(row => { //row = [Type, Time, Days, Where, Date Range, Schedule Type, Instructors]
 
-      let class_object             = {}
+      let class_object             = {floating: true}
       class_object.summary         = class_selection.querySelector('caption').textContent
       const [start_date, end_date] = row.cells[4].textContent.split('-').map(el => el.trim())
       const first_day_in_range     = new Date(start_date).getDay()
@@ -54,15 +54,16 @@ if (page_title.textContent == 'View detailed timetable') {
           })
         }
       }
-      class_objects.push(class_object)
-    })
+      return class_object
+    }))
   })
+  console.log(class_objects)
 
 
   let cal = require('ical-generator')({
     name:     calendar_title,
     prodId:   '//maxwellborden.com//UVICalendar//EN',
-    timezone: 'Americas/Vancouver',
+    timezone: 'America/Vancouver',
     events:   class_objects
   })
 
@@ -81,39 +82,19 @@ if (page_title.textContent == 'View detailed timetable') {
 }
 
 function to24(time) {
-  let [hours, minutes] = time.split(':').map(el=>parseInt(el))
-  if (time.endsWith('pm')) {
+  let [hours, minutes] = time.split(':').map(el=>parseInt(el,10))
+  if (time.endsWith('pm') && hours !== 12) {
     hours += 12
   }
   return hours.toString()+':'+ (minutes == 0?'00':minutes.toString())
 }
 
 function dayCharToInt(dayChar) {
-  switch (dayChar.toLowerCase()) {
-    case 'm':
-      return 1
-    case 't':
-      return 2
-    case 'w':
-      return 3
-    case 'r':
-      return 4
-    case 'f':
-      return 5
-  }
+  const days = ['su','m','t','w','r','f','sa']
+  return days.indexOf(dayChar.toLowerCase())
 }
 
 function dayIntToRRULE(dayInt) {
-  switch(dayInt) {
-    case 1:
-      return 'mo'
-    case 2:
-      return 'tu'
-    case 3:
-      return 'we'
-    case 4:
-      return 'th'
-    case 5:
-      return 'fr'
-  }
+  const days = ['su','mo', 'tu', 'we', 'th', 'fr', 'sa']
+  return days[dayInt]
 }

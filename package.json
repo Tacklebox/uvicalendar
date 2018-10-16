@@ -4,9 +4,13 @@
   "description": "Add the ability to export an iCal file from your UVIC detailed Timetable!",
   "main": "main.js",
   "dependencies": {
-    "ical-generator": "^0.2.10"
+    "ical-generator": "1.2.1",
+    "json-loader": "^0.5.7",
+    "moment-locales-webpack-plugin": "^1.0.7",
+    "moment-timezone": "^0.5.21"
   },
   "devDependencies": {
+    "eslint": "^5.5.0",
     "uglifyjs-webpack-plugin": "^1.0.1",
     "webpack": "^3.8.1"
   },

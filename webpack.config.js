@@ -10,6 +10,6 @@ module.exports = {
     filename: 'bundle.js'
   },
   plugins: [
-    new uglify({ uglifyOptions: { warnings: false } })
+    new uglify({ uglifyOptions: { warnings: false } }),
   ]
 };
