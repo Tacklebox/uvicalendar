@@ -62,7 +62,7 @@ if (page_title.textContent == 'View detailed timetable') {
 
   let cal = require('ical-generator')({
     name:     calendar_title,
-    prodId:   '//maxwellborden.com//UVICalendar//EN',
+    prodId:   '//m20n.com//UVICalendar//EN',
     timezone: 'America/Vancouver',
     events:   class_objects
   })
