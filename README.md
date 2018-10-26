@@ -17,7 +17,7 @@ npm install --dev
 npm run build
 ````
 #### Try it out!
-If you use firefox and have web-ext installed globally, you can run `npm run dev`, or alternatively,
+If you use firefox and have web-ext installed globally, you can run `npm run dev` after running `npm run build` at least once, or alternatively,
 check out the instructions to load a local extension for [Chrome](https://developer.chrome.com/extensions/getstarted#unpacked) or [Firefox](https://www.youtube.com/watch?time_continue=13&v=cer9EUKegG4)
 Note that the directory of the unpacked extension is 'dist', not the root directory of the repository.
 
@@ -32,3 +32,10 @@ rather than your existing calendar to ensure that the classes were created corre
 Feel free to open an issue if you have any trouble getting things working or if you encounter any errors in calendar generation.
 Due to the nature of the use case, the only test page I have is my own timetable so there are probably many edge cases that I am simply
 unable to encounter. Also feel free to open a pull request if you have a bug fix or new feature.
+
+## CHANGE LOG
+To comply with firefox source policy
+
+v1.0.1
+  npm version: 6.4.1
+  node version: v8.12.0
