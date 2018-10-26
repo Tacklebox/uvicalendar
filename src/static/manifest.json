@@ -23,7 +23,7 @@
     {
       "matches": ["https://www.uvic.ca/BAN1P/bwskfshd.P_CrseSchdDetl"],
       "all_frames": true,
-      "js": ["bundle.js"]
+      "js": ["content-bundle.js"]
     }
   ]
 }

@@ -27,7 +27,7 @@ if (page_title.textContent == 'View detailed timetable') {
         days.push(dayCharToInt(days_raw[i]))
       }
       // mwr => [1,3,4]
-      
+
 
 
       const first_occurrance_offset = Math.min(...days.map(day=>first_occurrance_order.indexOf(day)))

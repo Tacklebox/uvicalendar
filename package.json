@@ -12,7 +12,7 @@
   "devDependencies": {
     "concurrently": "^4.0.1",
     "copy-webpack-plugin": "^4.5.4",
-    "eslint": "^5.5.0",
+    "eslint": "^5.7.0",
     "uglifyjs-webpack-plugin": "^1.0.1",
     "webpack": "^3.8.1"
   },
@@ -20,9 +20,9 @@
     "build-js": "webpack --env.version=$npm_package_version",
     "build-ext": "web-ext build --source-dir=dist",
     "build": "npm run build-js && npm run build-ext",
-    "dev-js": "webpack --watch",
+    "dev-js": "webpack --env.version=$npm_package_version --watch",
     "dev-ext": "web-ext --source-dir=dist run",
-    "dev": "concurrently --kill-others \"npm run dev-js\" \"npm run dev-ext\"",
+    "dev": "concurrently --kill-others \"npm:dev-*\"",
     "test": "echo \"Error: no test specified\" && exit 1",
     "release-github": "npm run build && git release create $npm_package_version -a web-ext-artifacts/uvicalendar-$npm_package_version.zip"
   },
