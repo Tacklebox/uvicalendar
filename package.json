@@ -1,6 +1,6 @@
 {
   "name": "uvical_extension",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Add the ability to export an iCal file from your UVIC detailed Timetable!",
   "main": "main.js",
   "dependencies": {
