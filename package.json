@@ -11,19 +11,20 @@
   },
   "devDependencies": {
     "concurrently": "^4.0.1",
+    "copy-webpack-plugin": "^4.5.4",
     "eslint": "^5.5.0",
     "uglifyjs-webpack-plugin": "^1.0.1",
     "webpack": "^3.8.1"
   },
   "scripts": {
-    "build-js": "webpack",
+    "build-js": "webpack --env.version=$npm_package_version",
     "build-ext": "web-ext build --source-dir=dist",
     "build": "npm run build-js && npm run build-ext",
     "dev-js": "webpack --watch",
     "dev-ext": "web-ext --source-dir=dist run",
     "dev": "concurrently --kill-others \"npm run dev-js\" \"npm run dev-ext\"",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "release": "npm run build && git release create $npm_package_version -a web-ext-artifacts/uvicalendar-1.0.zip"
+    "release-github": "npm run build && git release create $npm_package_version -a web-ext-artifacts/uvicalendar-$npm_package_version.zip"
   },
   "author": "Maxwell A. Borden",
   "license": "MIT"
