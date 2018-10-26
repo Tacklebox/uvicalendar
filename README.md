@@ -8,7 +8,7 @@ To get started with uvicalendar, Ensure you have nodejs and npm installed and av
 ````
 git clone https://github.com/Tacklebox/uvicalendar.git && cd uvicalendar
 ````
-#### Install the necessary dependencies 
+#### Install the necessary dependencies
 ````
 npm install --dev
 ````
@@ -22,7 +22,7 @@ check out the instructions to load a local extension for [Chrome](https://develo
 Note that the directory of the unpacked extension is 'dist', not the root directory of the repository.
 
 Navigate to Student Services >> Registration >> Detailed timetable in the mypage area of the main UVIC website. There should be an additional
-button called 'export' at the top right of the timetable area beside the two existing buttons 'print' and 'help'. Clicking this button 
+button called 'export' at the top right of the timetable area beside the two existing buttons 'print' and 'help'. Clicking this button
 should prompt you to download a .calendar file representing your timetable.
 
 Refer to your calendar application's documentation for how to import a calendar. I strongly recommend adding it to a new blank calendar

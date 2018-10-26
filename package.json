@@ -25,7 +25,7 @@
     "dev-ext": "web-ext --source-dir=dist run",
     "dev": "concurrently --kill-others \"npm:dev-*\"",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "release-github": "npm run build && git release create $npm_package_version -a web-ext-artifacts/uvicalendar-$npm_package_version.zip"
+    "release-github": "npm run build && hub release create $npm_package_version -a web-ext-artifacts/uvicalendar-$npm_package_version.zip"
   },
   "author": "Maxwell A. Borden",
   "license": "MIT"
