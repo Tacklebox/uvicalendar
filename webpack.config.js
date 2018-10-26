@@ -9,6 +9,20 @@ module.exports = env => ({
     popup: path.join(__dirname, 'src', 'popup', 'main.js'),
   },
   node: {fs: 'empty'},
+  module: {
+    rules: [
+      {
+        test: /\.m?js$/,
+        exclude: /(node_modules|bower_components)/,
+        use: {
+          loader: 'babel-loader',
+          options: {
+            presets: ['@babel/preset-env']
+          }
+        }
+      }
+    ]
+  },
   output: {
     path: path.join(__dirname, 'dist'),
     filename: '[name]-bundle.js'
@@ -19,13 +33,13 @@ module.exports = env => ({
       context: 'src/static/',
       transform(content, path) {
         if (path.indexOf('manifest.json') >= 0) {
-          let manifest = JSON.parse(content.toString());
+          let manifest = JSON.parse(content.toString())
           manifest.version = env.version
-          return JSON.stringify(manifest);
+          return JSON.stringify(manifest)
         }
-        return content;
+        return content
       }
     }]),
     new uglify({ uglifyOptions: { warnings: false } }),
   ]
-});
+})
